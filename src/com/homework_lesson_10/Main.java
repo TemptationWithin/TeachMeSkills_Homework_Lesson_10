@@ -17,60 +17,28 @@ public class Main{
 
     public static void main(String[] args) {
 
+        int testNumber = 7;
+        String testLine = "Hello, Andrew. Here is my homework";
+
+
         Scanner scanner = new Scanner(System.in);
         int index = scanner.nextInt();
-        scanner.close();
 
-        String testString = "Hello Andrew, here is my homework";
-        int testNumber = 7;
-
-        I_MathOperation i_mathOperation;
-        switch (index) {
-            case  (1):
-                i_mathOperation = new I_MathOperation<String>() {
-                    @Override
-                    public String select(String a) {
-                        return new StringBuilder(a).reverse().toString();
-                    }
-                };
-                break;
-            case (2):
-                i_mathOperation = new I_MathOperation<Integer>() {
-                    @Override
-                    public Integer select(Integer a) {
-                        int result = 1;
-                        for (int i = 1; i <= a; i++) {
-                            result = result*i;
-                        }
-                        return result;
-                    }
-                };
-                break;
-            default:
-                i_mathOperation = new I_MathOperation() {
-                    @Override
-                    public Object select(Object a) {
-                        return null;
-                    }
-                };
-                break;
-        }
-
-        if (index == 1){
-            System.out.println(i_mathOperation.select(testString));
-        } else if (index == 2){
-            System.out.println(i_mathOperation.select(testNumber));
-        } else System.out.println("unknown index");
+        I_MathOperation<String> i_mathOperation_1 = t -> new StringBuilder(t).reverse().toString();
+        I_MathOperation<Integer> i_mathOperation_2 = t -> {
+            int result = 1;
+            for (int i = 1; i <= t; i++) {
+                result = result * i;
+            }
+            return result;
+        };
 
 
-
-
-
-
-
-
-
-
+        if (index == 1) {
+            System.out.println(i_mathOperation_1.select(testLine));
+        } else if (index == 2) {
+            System.out.println(i_mathOperation_2.select(testNumber));
+        } else System.out.println("Wrong index");
 
     }
 
