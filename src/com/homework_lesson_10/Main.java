@@ -24,7 +24,7 @@ public class Main{
         String testString = "Hello Andrew, here is my homework";
         int testNumber = 7;
 
-        I_MathOperation i_mathOperation = null;
+        I_MathOperation i_mathOperation;
         switch (index) {
             case  (1):
                 i_mathOperation = new I_MathOperation<String>() {
