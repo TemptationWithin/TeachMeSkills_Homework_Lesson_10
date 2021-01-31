@@ -17,12 +17,14 @@ public class Main{
 
     public static void main(String[] args) {
 
+        Scanner scanner = new Scanner(System.in);
+        int index = scanner.nextInt();
+        scanner.close();
+
+
         int testNumber = 7;
         String testLine = "Hello, Andrew. Here is my homework";
 
-
-        Scanner scanner = new Scanner(System.in);
-        int index = scanner.nextInt();
 
         I_MathOperation<String> i_mathOperation_1 = t -> new StringBuilder(t).reverse().toString();
         I_MathOperation<Integer> i_mathOperation_2 = t -> {
